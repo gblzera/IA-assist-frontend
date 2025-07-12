@@ -27,7 +27,7 @@ function App() {
 
     try {
       // ATENÇÃO: Se você fez o deploy, use a URL do Render aqui
-      const response = await fetch('https://meu-assistente-api.onrender.com/api/generate', {
+      const response = await fetch('https://ia-assist-api.onrender.com//api/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: inputText, action: action }),
