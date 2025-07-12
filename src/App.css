@@ -1,38 +1,89 @@
-.App {
-  text-align: center;
+/* Define as variáveis de cor para o tema escuro (padrão) */
+* {
+  box-sizing: border-box;
+}
+body {
+  --bg-color: #282c34;
+  --text-color: white;
+  --header-color: white;
+  --textarea-bg: #3e4451;
+  --textarea-border: #61dafb;
+  --button-bg: #61dafb;
+  --button-text: #282c34;
+  --button-disabled-bg: #555;
+  --output-bg: #3e4451;
+
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Define as variáveis para o tema claro quando o body tiver a classe 'light' */
+body.light {
+  --bg-color: #f0f2f5;
+  --text-color: #282c34;
+  --header-color: #0d1117;
+  --textarea-bg: #ffffff;
+  --textarea-border: #1877f2;
+  --button-bg: #1877f2;
+  --button-text: white;
+  --button-disabled-bg: #a5a9b0;
+  --output-bg: #e9ebee;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App { text-align: center; }
+.App-header { padding: 20px; }
+.theme-switcher {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-weight: bold;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.container { max-width: 800px; margin: 40px auto; }
+.input-textarea {
+  width: 95%;
+  height: 200px;
+  background-color: var(--textarea-bg);
+  color: var(--text-color);
+  border: 1px solid var(--textarea-border);
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 20px;
 }
-
-.App-link {
-  color: #61dafb;
+.controls button {
+  background-color: var(--button-bg);
+  border: none;
+  border-radius: 5px;
+  color: var(--button-text);
+  padding: 10px 20px;
+  margin: 5px 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: transform 0.2s;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.controls button:hover { transform: scale(1.05); }
+.controls button:disabled {
+  background-color: var(--button-disabled-bg);
+  cursor: not-allowed;
+  transform: none;
+}
+.output-area {
+  margin-top: 20px;
+  background-color: var(--output-bg);
+  color: var(--text-color);
+  border-radius: 8px;
+  padding: 20px;
+  min-height: 100px;
+  text-align: left;
+  /* Correção do overflow */
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
